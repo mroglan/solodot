@@ -1,15 +1,10 @@
 let canvas, ctx, w, h;
 let press;
 let i = 0;
-let sound;
-let backgrondMusic = document.querySelector("#backgroundMusic");
-let volume = document.querySelector("#volumeNum").value;
-let soundV = document.querySelector("#effectVolume").value;
 let animation;
 
 function init() {
 
-	sound = document.querySelector("#sound");
 	
 	canvas = document.querySelector("#canvas");
 	
@@ -163,7 +158,6 @@ function testBallWallCollision(b) {
 		b.speedY = -b.speedY * 1.1;
 		b.speedX = b.speedX * 1.1;
 		b.y = h - (b.radius + player.height + .001);
-		sound.play();
 		if(player.speedX < 15) {
 			player.speedX = player.speedX * 1.1;
 			console.log(player.speedX);
@@ -191,36 +185,3 @@ function overlap(x0, y0, w0, h0, cx, cy, r) {
    return (((cx-testX)*(cx-testX)+(cy-testY)*(cy-testY))< r*r);
 }
 		
-function music1() {
-	backgroundMusic.src = "media/12 Ash.mp3";
-	backgroundMusic.play();
-}
-
-function music2() {
-	backgroundMusic.src = "media/Hobbits.mp3";
-	backgroundMusic.play();
-}
-
-function music3() {
-	backgroundMusic.src = "media/Prophecy.mp3";
-	backgroundMusic.play();
-}
-
-function musicOff() {
-	backgroundMusic.currentTime = 0;
-	backgroundMusic.pause();
-}
-
-function calculateVolume() {
-		backgroundMusic.volume = volume;
-}
-
-function changeVolume(input) {
-	volume = input;
-}
-
-function soundEffects(input) {
-	soundV = input;
-	sound.volume = soundV;
-}
-
